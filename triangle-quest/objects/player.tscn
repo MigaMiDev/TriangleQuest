@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bou1f1ogysfb4" path="res://scripts/player.gd" id="1_eqqp1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv3ea"]
+size = Vector2(112, 112)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(30, 30)
 
@@ -10,13 +13,13 @@ script = ExtResource("1_eqqp1")
 
 [node name="Rotatable" type="Node2D" parent="." unique_id=1847149333]
 
-[node name="ColorRect" type="ColorRect" parent="Rotatable" unique_id=30937795]
-offset_top = -40.0
-offset_right = 56.0
-offset_bottom = 40.0
+[node name="Area2D" type="Area2D" parent="Rotatable" unique_id=1506931563]
+collision_layer = 0
+collision_mask = 4
 
-[node name="RayCast2D" type="RayCast2D" parent="Rotatable" unique_id=1779653711]
-target_position = Vector2(56, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/Area2D" unique_id=554779190]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_nv3ea")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150299074]
 shape = SubResource("RectangleShape2D_g4v7s")

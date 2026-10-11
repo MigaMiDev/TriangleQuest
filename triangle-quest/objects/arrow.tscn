@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cm20e8uir43wy"]
+
+[ext_resource type="Script" uid="uid://csxxr47kdiws7" path="res://scripts/arrow.gd" id="1_y283q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y283q"]
+radius = 40.0
+
+[node name="Arrow" type="Node2D" unique_id=57527928]
+script = ExtResource("1_y283q")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1526147033]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=506746683]
+shape = SubResource("CircleShape2D_y283q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1671374908]
+offset_left = -16.0
+offset_top = -4.0
+offset_right = 16.0
+offset_bottom = 4.0
