@@ -1,9 +1,46 @@
 [gd_scene format=3 uid="uid://r8gpfi3m2r78"]
 
+[ext_resource type="Shader" uid="uid://c1ej1a2o8g8oe" path="res://stars.gdshader" id="1_2ayvv"]
+[ext_resource type="Texture2D" uid="uid://bgtgbwgt684a5" path="res://sprites/stars.png" id="1_o1ld7"]
 [ext_resource type="PackedScene" uid="uid://dq6f4c2ishaaj" path="res://objects/player.tscn" id="1_tt30a"]
 [ext_resource type="Script" uid="uid://c4hfmi8vcgllq" path="res://scripts/spawner.gd" id="2_1ey7h"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1mvj"]
+shader = ExtResource("1_2ayvv")
+shader_parameter/y_speed = 0.01
+shader_parameter/x_speed = 0.01
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ayvv"]
+shader = ExtResource("1_2ayvv")
+shader_parameter/y_speed = 0.005
+shader_parameter/x_speed = 0.005
+shader_parameter/modulate_color = Color(1, 1, 1, 0.37254903)
+
 [node name="Node2D" type="Node2D" unique_id=1525337254]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1382610271]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=701774990]
+material = SubResource("ShaderMaterial_w1mvj")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_o1ld7")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="ColorRect" unique_id=1436951612]
+material = SubResource("ShaderMaterial_2ayvv")
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_o1ld7")
+stretch_mode = 1
+flip_h = true
+flip_v = true
 
 [node name="CharacterBody2D" parent="." unique_id=2464752 instance=ExtResource("1_tt30a")]
 position = Vector2(576, 320)

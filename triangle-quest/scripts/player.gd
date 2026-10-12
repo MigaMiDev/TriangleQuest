@@ -10,6 +10,8 @@ var dash_timer: float = 0.0
 var attack_timer: float = 0.0
 
 var dir: Vector2 = Vector2.ZERO
+var old_rot: float = 0.0
+var rot: float = 0.0
 
 func _ready() -> void:
 	$Rotatable/Area2D.connect("area_entered", hit)
@@ -25,6 +27,7 @@ func _process(_delta: float) -> void:
 	if (attack_timer > 0.0): attack_timer -= _delta
 
 func _physics_process(_delta: float) -> void:
+	old_rot = rot
 	if (!$Rotatable/Area2D/CollisionShape2D.disabled && attack_timer <= 0.0):
 		$Rotatable/Area2D/CollisionShape2D.set_deferred("disabled", true)
 	if (attack_timer <= 0.0 && Input.is_action_just_pressed("Attack")):
@@ -36,20 +39,25 @@ func _physics_process(_delta: float) -> void:
 	var input_x = Input.get_axis("Left", "Right")
 	var input_y = Input.get_axis("Up", "Down")
 
-	dir = Vector2(input_x, input_y)
+	#dir = Vector2(input_x, input_y)
 
-	if (dir != Vector2.ZERO && dash_timer <= 0.0):
-		velocity += (dir.normalized() * SPEED) * _delta
-		velocity.x = clamp(velocity.x, -SPEED_LIMIT.x, SPEED_LIMIT.x)
-		velocity.y = clamp(velocity.y, -SPEED_LIMIT.y, SPEED_LIMIT.y)
-	if dir.x == 0.0: velocity.x = lerp(velocity.x, 0.0, 0.1 if dash_timer <= 0.0 else 0.05)
-	if dir.y == 0.0: velocity.y = lerp(velocity.y, 0.0, 0.1 if dash_timer <= 0.0 else 0.05)
+	#if (dir != Vector2.ZERO && dash_timer <= 0.0):
+	#	velocity += (dir.normalized() * SPEED) * _delta
+	#	velocity.x = clamp(velocity.x, -SPEED_LIMIT.x, SPEED_LIMIT.x)
+	#	velocity.y = clamp(velocity.y, -SPEED_LIMIT.y, SPEED_LIMIT.y)
+	#if dir.x == 0.0: velocity.x = lerp(velocity.x, 0.0, 0.1 if dash_timer <= 0.0 else 0.05)
+	#if dir.y == 0.0: velocity.y = lerp(velocity.y, 0.0, 0.1 if dash_timer <= 0.0 else 0.05)
+
+	var target_rot: float = lerpf(old_rot, rot, 0.00)
+	velocity += (Vector2.RIGHT.rotated(target_rot) * 500) * _delta
 
 	if (dash_timer > 0.0): dash_timer -= _delta
 	elif (Input.is_action_just_pressed("Dash")):
 		if (dir == Vector2.ZERO): dir = global_position.direction_to(get_global_mouse_position())
 		velocity = dir * 700
 		dash_timer = 0.2
+
+	rot = $Rotatable.rotation
 
 	move_and_slide()
 
