@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dq6f4c2ishaaj"]
 
 [ext_resource type="Script" uid="uid://bou1f1ogysfb4" path="res://scripts/player.gd" id="1_eqqp1"]
+[ext_resource type="Texture2D" uid="uid://b3883nm12tou5" path="res://ship.png" id="2_ykyjo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nv3ea"]
 size = Vector2(112, 112)
@@ -30,6 +31,12 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotatable/Area2D" unique_id=554779190]
 position = Vector2(40, 0)
 shape = SubResource("RectangleShape2D_nv3ea")
+
+[node name="Sprite2D" type="Sprite2D" parent="Rotatable" unique_id=330374405]
+position = Vector2(4.7683716e-07, -4.7683716e-07)
+scale = Vector2(2, 2)
+texture = ExtResource("2_ykyjo")
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150299074]
 shape = SubResource("RectangleShape2D_g4v7s")
