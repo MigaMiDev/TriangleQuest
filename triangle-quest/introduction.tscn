@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://53rljloc8pd1"]
+
+[ext_resource type="Texture2D" uid="uid://c7n31niceq3h5" path="res://boss.jpg" id="1_oqkmi"]
+
+[node name="Node2D" type="Node2D" unique_id=1728790911]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1285521444]
+offset_top = 8.0
+offset_right = 1152.0
+offset_bottom = 640.0
+texture = ExtResource("1_oqkmi")
+expand_mode = 1
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=642762169]
+offset_left = 473.74994
+offset_top = 531.24994
+offset_right = 800.0
+offset_bottom = 552.0
+
+[node name="Panel" type="Panel" parent="." unique_id=1574517558]
+offset_left = 296.0
+offset_top = 392.0
+offset_right = 840.0
+offset_bottom = 608.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1108175946]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 346.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 27
+text = "Comandante E. Osuna "

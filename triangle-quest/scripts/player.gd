@@ -34,10 +34,10 @@ func _physics_process(_delta: float) -> void:
 	old_rot = rot
 	if (!$Rotatable/Area2D/CollisionShape2D.disabled && attack_timer <= 0.0):
 		$Rotatable/Area2D/CollisionShape2D.set_deferred("disabled", true)
+	#if (attack_timer <= 0.0 && Input.is_action_just_pressed("Attack")):
+		#$Rotatable/Area2D/CollisionShape2D.set_deferred("disabled", false)
+		#attack_timer = 0.2
 	if (attack_timer <= 0.0 && Input.is_action_just_pressed("Attack")):
-		$Rotatable/Area2D/CollisionShape2D.set_deferred("disabled", false)
-		attack_timer = 0.2
-	if (attack_timer <= 0.0 && Input.is_action_just_pressed("Util")):
 		shoot_arrow()
 
 	var input_x = Input.get_axis("Left", "Right")

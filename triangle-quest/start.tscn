@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bf80nyr07pwwi"]
+
+[ext_resource type="Texture2D" uid="uid://bjh2xb8xujcl7" path="res://scripts/IMG_0439.jpg" id="1_qn1rc"]
+[ext_resource type="Script" uid="uid://d34ip3pgrv8rc" path="res://button.gd" id="2_1n0d2"]
+
+[node name="Node2D" type="Node2D" unique_id=1126601127]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1435583364]
+offset_top = 24.0
+offset_right = 1144.0
+offset_bottom = 648.0
+texture = ExtResource("1_qn1rc")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="." unique_id=540328187]
+offset_left = 536.0
+offset_top = 416.0
+offset_right = 617.0
+offset_bottom = 447.0
+text = "EMPEZAR"
+script = ExtResource("2_1n0d2")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=269877463]
+offset_left = -128.0
+offset_top = 184.0
+offset_right = -128.0
+offset_bottom = 224.0
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
