@@ -1,152 +1,56 @@
 [gd_scene format=3 uid="uid://r8gpfi3m2r78"]
 
-[ext_resource type="Shader" uid="uid://c1ej1a2o8g8oe" path="res://stars.gdshader" id="1_2ayvv"]
-[ext_resource type="Texture2D" uid="uid://bgtgbwgt684a5" path="res://sprites/stars.png" id="1_o1ld7"]
 [ext_resource type="PackedScene" uid="uid://dq6f4c2ishaaj" path="res://objects/player.tscn" id="1_tt30a"]
 [ext_resource type="Shader" uid="uid://c430wwew7x0cd" path="res://shadfer.gdshader" id="1_w1mvj"]
 [ext_resource type="Texture2D" uid="uid://b2n5jtuiv08li" path="res://stars.png" id="2_lxycn"]
 [ext_resource type="Script" uid="uid://c50sr1crrhxtx" path="res://scripts/wave_manager.gd" id="2_o1ld7"]
 [ext_resource type="PackedScene" uid="uid://42bm1742xlis" path="res://objects/enemy.tscn" id="3_2ayvv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nv3ea"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o1ld7"]
 shader = ExtResource("1_w1mvj")
 shader_parameter/y_speed = 0.05
 shader_parameter/x_speed = 0.025
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1mvj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ayvv"]
 shader = ExtResource("1_w1mvj")
 shader_parameter/y_speed = 0.015
 shader_parameter/x_speed = 0.03
-shader_parameter/modulate_color = Color(1, 1, 1, 0.5176471)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w1mvj"]
-shader = ExtResource("1_2ayvv")
-shader_parameter/y_speed = 0.01
-shader_parameter/x_speed = 0.01
 shader_parameter/modulate_color = Color(1, 1, 1, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ayvv"]
-shader = ExtResource("1_2ayvv")
-shader_parameter/y_speed = 0.005
-shader_parameter/x_speed = 0.005
-shader_parameter/modulate_color = Color(1, 1, 1, 0.37254903)
+[node name="Home" type="Node2D" unique_id=278963674]
 
-[node name="Node2D" type="Node2D" unique_id=1525337254]
-
-<<<<<<< Updated upstream
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1382610271]
-=======
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1065985878]
->>>>>>> Stashed changes
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1486272321]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-<<<<<<< Updated upstream
-[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=701774990]
-material = SubResource("ShaderMaterial_w1mvj")
+[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=384433375]
+material = SubResource("ShaderMaterial_o1ld7")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_o1ld7")
+texture = ExtResource("2_lxycn")
 stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="ColorRect" unique_id=1436951612]
+[node name="TextureRect2" type="TextureRect" parent="ColorRect" unique_id=1220847797]
 material = SubResource("ShaderMaterial_2ayvv")
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
-texture = ExtResource("1_o1ld7")
-=======
-[node name="TextureRect" type="TextureRect" parent="ColorRect" unique_id=1916428737]
-material = SubResource("ShaderMaterial_nv3ea")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 texture = ExtResource("2_lxycn")
-stretch_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="ColorRect" unique_id=387006099]
-material = SubResource("ShaderMaterial_w1mvj")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_lxycn")
->>>>>>> Stashed changes
 stretch_mode = 1
 flip_h = true
 flip_v = true
 
+[node name="Node" type="Node" parent="." unique_id=1735478746]
+script = ExtResource("2_o1ld7")
+enemy_scene = ExtResource("3_2ayvv")
+
 [node name="CharacterBody2D" parent="." unique_id=2464752 instance=ExtResource("1_tt30a")]
 position = Vector2(576, 320)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=697946824]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1492844713]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2113307354]
-polygon = PackedVector2Array(64, 584, 1088, 584, 1088, 64, 64, 64, 64, 0, 1152, 0, 1152, 648, 0, 648, 0, 0, 64, 0)
-
-[node name="SpawnPos" type="Node2D" parent="." unique_id=1651454513]
-position = Vector2(576, 0)
-
-[node name="Left" type="Node2D" parent="SpawnPos" unique_id=526379891]
-position = Vector2(-608, 96)
-
-[node name="0" type="Node2D" parent="SpawnPos/Left" unique_id=503622510]
-
-[node name="1" type="Node2D" parent="SpawnPos/Left" unique_id=1680628372]
-position = Vector2(0, 64)
-
-[node name="2" type="Node2D" parent="SpawnPos/Left" unique_id=2058063966]
-position = Vector2(0, 128)
-
-[node name="3" type="Node2D" parent="SpawnPos/Left" unique_id=1395709145]
-position = Vector2(0, 192)
-
-[node name="4" type="Node2D" parent="SpawnPos/Left" unique_id=103605728]
-position = Vector2(0, 256)
-
-[node name="5" type="Node2D" parent="SpawnPos/Left" unique_id=1410097368]
-position = Vector2(0, 320)
-
-[node name="6" type="Node2D" parent="SpawnPos/Left" unique_id=44747866]
-position = Vector2(0, 384)
-
-[node name="7" type="Node2D" parent="SpawnPos/Left" unique_id=638690650]
-position = Vector2(0, 448)
-
-[node name="Right" type="Node2D" parent="SpawnPos" unique_id=1083313518]
-position = Vector2(608, 96)
-
-[node name="0" type="Node2D" parent="SpawnPos/Right" unique_id=456922492]
-
-[node name="1" type="Node2D" parent="SpawnPos/Right" unique_id=1181652334]
-position = Vector2(0, 64)
-
-[node name="2" type="Node2D" parent="SpawnPos/Right" unique_id=101865538]
-position = Vector2(0, 128)
-
-[node name="3" type="Node2D" parent="SpawnPos/Right" unique_id=817506028]
-position = Vector2(0, 192)
-
-[node name="4" type="Node2D" parent="SpawnPos/Right" unique_id=545922513]
-position = Vector2(0, 256)
-
-[node name="5" type="Node2D" parent="SpawnPos/Right" unique_id=1484403010]
-position = Vector2(0, 320)
-
-[node name="6" type="Node2D" parent="SpawnPos/Right" unique_id=1277575106]
-position = Vector2(0, 384)
-
-[node name="7" type="Node2D" parent="SpawnPos/Right" unique_id=808020573]
-position = Vector2(0, 448)
-
-[node name="WavManager" type="Node" parent="." unique_id=1449106393]
-script = ExtResource("2_o1ld7")
-enemy_scene = ExtResource("3_2ayvv")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2035875856]
+polygon = PackedVector2Array(0, 648, 0, 0, 1152, 0, 1152, 648, 16, 648, 16, 632, 1136, 632, 1136, 16, 16, 16, 16, 648)

@@ -14,13 +14,6 @@ script = ExtResource("1_eqqp1")
 
 [node name="Rotatable" type="Node2D" parent="." unique_id=1847149333]
 
-[node name="ColorRect" type="ColorRect" parent="Rotatable" unique_id=237295509]
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 16.0
-offset_bottom = 16.0
-color = Color(1, 1, 0, 1)
-
 [node name="RayCast2D" type="RayCast2D" parent="Rotatable" unique_id=1627142470]
 target_position = Vector2(96, 0)
 

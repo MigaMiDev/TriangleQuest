@@ -1,15 +1,11 @@
 class_name Enemy
 extends Node2D
 
-<<<<<<< Updated upstream
-const kill_p_tscn = preload("res://particles/kill_particles.tscn")
-=======
 signal died
->>>>>>> Stashed changes
 
 var velocity: Vector2 = Vector2.ZERO
 
-var health: int = 2
+var health: int = 5
 var max_health: int = 5
 var stun_timer: float = 0.0
 
@@ -25,19 +21,6 @@ func hit(origin: Vector2, damage: int = 1):
 	health -= damage
 	stun_timer = 0.6
 
-<<<<<<< Updated upstream
-	match health:
-		4: $ColorRect.color = Color.RED
-		3: $ColorRect.color = Color.ORANGE_RED
-		2: $ColorRect.color = Color.PALE_VIOLET_RED
-		1: $ColorRect.color = Color.WHITE
-		0: kill()
-
-func kill():
-	ParticleSystem.create_particle(ParticleTypes.KILL_EFFECT, global_position)
-	queue_free()
-	
-=======
 	if health <= 0:
 		died.emit()
 		queue_free()
@@ -48,12 +31,11 @@ func kill():
 
 func _process(delta: float) -> void:
 	$Polygon2D.rotation = atan2(-velocity.y, -velocity.x)
->>>>>>> Stashed changes
 
 func _physics_process(_delta: float) -> void:
 	if (stun_timer <= 0.0):
 		if (get_tree().get_first_node_in_group("Player") != null):
-			velocity = ((global_position - get_tree().get_first_node_in_group("Player").global_position).normalized() * -5000) * _delta
+			velocity = ((global_position - get_tree().get_first_node_in_group("Player").global_position).normalized() * -9000) * _delta
 	else:
 		stun_timer -= _delta
 		velocity = lerp(velocity, Vector2.ZERO, 0.1)
